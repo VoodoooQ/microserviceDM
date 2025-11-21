@@ -1,0 +1,69 @@
+### Variables
+@baseUrl = http://localhost:8080/api/pets
+@userEmail = user@example.com
+
+### 1. Crear mascota - Rex (Perro)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Rex",
+  "type": "Perro",
+  "userEmail": "{{userEmail}}"
+}
+
+### 2. Crear mascota - Michi (Gato)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Michi",
+  "type": "Gato",
+  "userEmail": "{{userEmail}}"
+}
+
+### 3. Crear mascota - Luna (Gato)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Luna",
+  "type": "Gato",
+  "userEmail": "{{userEmail}}"
+}
+
+### 4. Crear mascota - Bobby (Perro)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Bobby",
+  "type": "Perro",
+  "userEmail": "otro@example.com"
+}
+
+### 5. Obtener todas las mascotas de user@example.com
+GET {{baseUrl}}?userEmail={{userEmail}}
+
+### 6. Obtener todas las mascotas de otro@example.com
+GET {{baseUrl}}?userEmail=otro@example.com
+
+### 7. Obtener mascota por ID = 1
+GET {{baseUrl}}/1
+
+### 8. Obtener mascota por ID = 2
+GET {{baseUrl}}/2
+
+### 9. Eliminar mascota por ID = 1
+DELETE {{baseUrl}}/1
+
+### 10. Intentar obtener mascota inexistente (debe retornar 404)
+GET {{baseUrl}}/9999
+
+### 11. Crear mascota sin datos requeridos (debe retornar 400)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Incomplete"
+}
